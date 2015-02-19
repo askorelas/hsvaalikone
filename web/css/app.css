@@ -1,0 +1,49 @@
+body{
+  background-color: #f2f2f2;
+  font-family: sans-serif;
+}
+
+a{
+  color: black;
+}
+
+#visualization{
+  margin-bottom: 2em;
+}
+
+#scatterplot-pane{
+  width: 900px;
+  float: left;
+}
+
+#details-pane{
+  margin-left: 900px;
+  font-size: 12px;
+}
+
+#details-pane label{
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+#details-pane label span{
+  font-weight: bold;
+}
+
+#header{
+  margin-left: 60px;
+}
+
+#candidate-filter{
+  width: 300px;
+}
+
+.inset{
+  margin-left: 2em;
+  display: block;
+}
+
+#summary{
+  padding: 0 40px 40px 40px;
+  font-size: 12px;
+}
