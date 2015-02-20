@@ -21,6 +21,9 @@ totalw = halfw * 2;
 var partyColors = ["#f3811a", "#196d36", "#136389", "#5dd9fd", "#009BC2", "#0f28b3", "#000000", "#ee2722", "#a60b1d", "#ffdd00", "#b1d34a", "#61bf1a"];
 var ageColors = ["#000000", "#444444", "#777777", "#aaaaaa", "#dddddd", "#ffffff", "#ffffff", "#ff0000"];
 var genderColors = ["#66CCFF", "#FFCCFF"];
+var districtColors = ["#CCCCCC", "#003366", "#FFFFFF", "#CCCC99", "#561420", "#821122", "#C59A6F", "#333333", "#FF9933", "#003399", "#99CCCC", "#000000"];
+
+
 
 //groupIndex indicates the column number in the data that contains the group information
 var getGroups = function(groupIndex) {
@@ -123,6 +126,11 @@ $(document).ready(function(){
     renderChart(genderColors, getGroups(8));
     $(".legend").hide();
     $("#genderLegend").show();
+  });
+  $("#colorByDistrict").change(function(){
+    renderChart(districtColors, getGroups(44));
+    $(".legend").hide();
+    $("#districtLegend").show();
   });
 });
 

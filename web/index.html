@@ -26,7 +26,7 @@
   <body>
     <div id="header">
       <h1>Ehdokasparvi 2015</h1>
-      <h3>Etsi ehdokasta</h3>
+
       <input type="text" placeholder="Ehdokkaan nimi" id="candidate-filter"/>
     </div>
     <div id="visualization">
@@ -39,6 +39,10 @@
             <label for="colorByParty"> 
               <input type="radio" checked="checked" id="colorByParty" name="color"/>
               Väritä puolueen mukaan
+            </label>
+            <label for="colorByDistrict"> 
+              <input type="radio" id="colorByDistrict" name="color"/>
+              Väritä vaalipiirin mukaan
             </label>
             <label for="colorByAge"> 
               <input type="radio" id="colorByAge" name="color"/>
@@ -168,7 +172,7 @@
                     <circle cx="5" cy="5" class="pt907" r="3" fill="#444444" stroke="black" stroke-width="1" opacity="1"></circle>
                   </g>
                 </svg>
-                30 - 40
+                30 - 39
               </div>
               <div class="legend-item">
                 <svg width="10" height="10">
@@ -176,7 +180,7 @@
                     <circle cx="5" cy="5" class="pt907" r="3" fill="#777777" stroke="black" stroke-width="1" opacity="1"></circle>
                   </g>
                 </svg>
-                40 - 50
+                40 - 49
               </div>
               <div class="legend-item">
                 <svg width="10" height="10">
@@ -184,7 +188,7 @@
                     <circle cx="5" cy="5" class="pt907" r="3" fill="#aaaaaa" stroke="black" stroke-width="1" opacity="1"></circle>
                   </g>
                 </svg>
-                50 - 60
+                50 - 59
               </div>
               <div class="legend-item">
                 <svg width="10" height="10">
@@ -192,7 +196,7 @@
                     <circle cx="5" cy="5" class="pt907" r="3" fill="#dddddd" stroke="black" stroke-width="1" opacity="1"></circle>
                   </g>
                 </svg>
-                60 - 70
+                60 - 69
               </div>
               <div class="legend-item">
                 <svg width="10" height="10">
@@ -200,7 +204,7 @@
                     <circle cx="5" cy="5" class="pt907" r="3" fill="#ffffff" stroke="black" stroke-width="1" opacity="1"></circle>
                   </g>
                 </svg>
-                Yli 70
+                70 tai yli
               </div>
               <div class="legend-item">
                 <svg width="10" height="10">
@@ -208,7 +212,7 @@
                     <circle cx="5" cy="5" class="pt907" r="3" fill="#ff0000" stroke="black" stroke-width="1" opacity="1"></circle>
                   </g>
                 </svg>
-                Ei ilmoitettu
+                Puuttuu
               </div>
             </div>
             
@@ -232,6 +236,107 @@
                 Nainen
               </div>
             </div>
+            
+            <!-- Vaalipiiri -->
+            <div id="districtLegend" class="legend" style="display: none;">
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#CCCCCC" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Häme
+              </div>
+              
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#003366" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Helsinki
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#FFFFFF" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Uusimaa
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#CCCC99" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Keski-Suomi
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#561420" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Lappi
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#821122" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Kaakkois-Suomi
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#C59A6F" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Oulu
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#333333" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Vaasa
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#FF9933" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Pirkanmaa
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#003399" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Satakunta
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#99CCCC" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Savo-Karjala
+              </div>
+              <div class="legend-item">
+                <svg width="10" height="10">
+                  <g>
+                    <circle cx="5" cy="5" class="pt907" r="3" fill="#000000" stroke="black" stroke-width="1" opacity="1"></circle>
+                  </g>
+                </svg>
+                Varsinais-Suomi
+              </div>
+            </div>
           </div>
         </div>
         
@@ -239,10 +344,16 @@
           <hr/>
           <h3>Ehdokasparvi 2015</h3>
           <p>
-            Ehdokasparvi on visualisaatio eduskuntavaaliehdokkaiden antamista HS:n vaalikonevastauksista. Visualisaation tarkoituksena on tutkia, ketkä ehdokkaat ovat vastaustensa perusteella lähellä toisiaan, ja löytyykö eduskuntavaaliehdokkaiden joukosta selkeitä puolueklustereita vastausten perusteella. Toisena tavoitteena oli selvittää, miten moniulotteisen datan voi visualisoida kaksiulotteisena kuvaajana niin, että informaatiota menetetään mahdollisimman vähän.
+            Ehdokasparvi on visualisaatio eduskuntavaaliehdokkaiden antamista HS:n vaalikonevastauksista. Visualisaation tarkoituksena on tutkia ja havainnollistaa ehdokkaiden vastausten perusteella: 
+            <ol>
+              <li>Löytyykö eduskuntavaaliehdokkaiden joukosta selkeät puolueklusterit</li>
+              <li>Löytyykö puoluerajojen sisällä poikkeavia kantoja</li>
+              <li>Löytyykö puolueen lisäksi muita demografisia tekijöitä, jotka korreloivat ehdokkaan vastausten kanssa</li>
+              <li>Ketkä ehdokkaat ovat keskenään samnlaisia, tai toisaalta erilaisia</li>
+            </ol>
           </p>
           <p>
-            Kuvaaja perustuu <a href="http://www.hs.fi/politiikka/a1305929269692">HS:n julkaisemaan avoimeen dataan ehdokkaiden vastauksista</a>, joka muutettiin kaksiulotteiseksi <a href="http://fi.wikipedia.org/wiki/P%C3%A4%C3%A4komponenttianalyysi">pääkomponenttianalyysin</a> (Principal Component Analysis, PCA) avulla. Ehdokkaat esitetään puolueiden, ikäryhmän, tai sukupuolen mukaan värikoodattuna pistekaaviona. Kuvaajan akselit eivät suoranaisesti edusta esimerkiksi vasemmisto-oikeisto, vapaamielis-vanhoillis jaottelua; ainoastaan pisteiden välisellä etäisyydellä on merkitys. Kuitenkin erityisesti vasemmisto, keskusta, ja oikeisto  ovat havaittavissa kuvaajasta.
+            Kuvaaja perustuu <a href="http://www.hs.fi/politiikka/a1305929269692">HS:n julkaisemaan avoimeen dataan ehdokkaiden vastauksista</a>, joka muutettiin kaksiulotteiseksi <a href="http://fi.wikipedia.org/wiki/P%C3%A4%C3%A4komponenttianalyysi">pääkomponenttianalyysin</a> (Principal Component Analysis, PCA) avulla. Ehdokkaat esitetään värikoodattuna pistekaaviona. Kuvaajan akselit eivät suoranaisesti edusta esimerkiksi vasemmisto-oikeisto, vapaamielis-vanhoillis jaottelua; ainoastaan pisteiden välisellä etäisyydellä on merkitys. Kuitenkin erityisesti vasemmisto, keskusta, ja oikeisto ovat havaittavissa kuvaajasta.
           </p>
           <p>
             Visualisaatio pohjautuu Karl Bromanin <a href="https://github.com/kbroman/qtlcharts">qtlcharts</a> kirjastoon, ja sen lähdekoodi on ladattavissa <a href="https://github.com/askorelas/hsvaalikone">GitHub:sta</a>
