@@ -112,7 +112,7 @@ scatterplot = function() {
       if (group.length !== x.length) {
         displayError("group.length (" + group.length + ") != x.length (" + x.length + ")");
       }
-      pointcolor =  ["#f3811a", "#196d36", "#136389", "#5dd9fd", "#009BC2", "#0f28b3", "#000000", "#ee2722", "#db172f", "#ffdd00", "#f68b1f", "#61bf1a"];
+      
       if (pointcolor.length !== ngroup) {
         displayError("pointcolor.length (" + pointcolor.length + ") != ngroup (" + ngroup + ")");
       }

@@ -43,8 +43,12 @@ a{
   display: block;
 }
 
-#summary{
+#summary, #chart-controls{
   padding: 0 40px 40px 40px;
   font-size: 12px;
   line-height: 1.4em;
+}
+
+.legend{
+  margin-top: 1em;
 }
