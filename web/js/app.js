@@ -21,7 +21,8 @@ totalw = halfw * 2;
 var partyColors = ["#f3811a", "#196d36", "#136389", "#5dd9fd", "#009BC2", "#0f28b3", "#000000", "#ee2722", "#a60b1d", "#ffdd00", "#b1d34a", "#61bf1a"];
 var ageColors = ["#000000", "#444444", "#777777", "#aaaaaa", "#dddddd", "#ffffff", "#ffffff", "#ff0000"];
 var genderColors = ["#66CCFF", "#FFCCFF"];
-var districtColors = ["#CCCCCC", "#003366", "#FFFFFF", "#CCCC99", "#561420", "#821122", "#C59A6F", "#333333", "#FF9933", "#003399", "#99CCCC", "#000000"];
+//                     Häme,      Helsinki  Uusimaa     Keski-Suo  Lappi     Kaakk-Suo  Oulu        Vaasa     Pirkanmaa  Satakunta  Savo-Karj  Varsinais-Suomi
+var districtColors = ["#3a5978", "#132231", "#254e56", "#6f8090", "#dcdada", "#942e2d", "#a59b9b", "#6695c7", "#3a6fa4", "#126ac4", "#e51b1b", "#134a83"];
 
 
 
