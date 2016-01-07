@@ -8,7 +8,7 @@
   alert("Visualisaatio toimii Internet Explorer 9:llä ja sitä uudemmilla versioilla.");
 </script>
 <![endif]-->
-    
+
     <script charset="utf-8" type="text/javascript" src="./js/lib/d3.min.js"></script>
     <script type="text/javascript" src="./js/lib/d3-tip.min.js"></script>
     <script type="text/javascript" src="./js/lib/colorbrewer.js"></script>
@@ -16,9 +16,9 @@
     <script type="text/javascript" src="./js/lib/scatterplot.js"></script>
     <script type="text/javascript" src="./js/data.js"></script>
     <script type="text/javascript" src="./js/lib/jquery-1.9.1.min.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="./css/lib/panelutil.css">
-    <link rel="stylesheet" type="text/css" href="./css/lib/d3-tip.min.css"> 
+    <link rel="stylesheet" type="text/css" href="./css/lib/d3-tip.min.css">
     <link rel="stylesheet" type="text/css" href="./css/app.css">
 
   </head>
@@ -33,318 +33,46 @@
       <div id="scatterplot-pane">
 
         <div class="qtlcharts" id="chart1"></div>
-        
+
         <div id="chart-controls">
           <form name="controls">
-            <label for="colorByParty"> 
+            <label for="colorByParty">
               <input type="radio" checked="checked" id="colorByParty" name="color"/>
               Väritä puolueen mukaan
             </label>
-            <label for="colorByDistrict"> 
+            <label for="colorByDistrict">
               <input type="radio" id="colorByDistrict" name="color"/>
               Väritä vaalipiirin mukaan
             </label>
-            <label for="colorByAge"> 
+            <label for="colorByAge">
               <input type="radio" id="colorByAge" name="color"/>
               Väritä ikäryhmän mukaan
             </label>
-            <label for="colorByGender"> 
+            <label for="colorByGender">
               <input type="radio" id="colorByGender" name="color"/>
               Väritä sukupuolen mukaan
             </label>
           </form>
           <div id="legends">
-            <div id="partyLegend" class="legend">
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#f3811a" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Itsenäisyyspuolue
-              </div>
-              
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#196d36" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Keskusta
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#136389" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Kokoomus
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#5dd9fd" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Kristillisdemokraatit
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#009BC2" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Muutos 2011
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#0f28b3" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Perussuomalaiset
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#000000" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Piraattipuolue
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#ee2722" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                RKP
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#a60b1d" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                SDP
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#ffdd00" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                SKP
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#b1d34a" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Vasemmisto
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#61bf1a" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Vihreät
-              </div>
-            </div>
-            
-            
+            <!-- Puolue -->
+            <div id="partyLegend" class="legend"></div>
+
             <!-- Ikäryhmät -->
-            <div id="ageLegend" class="legend" style="display: none;">
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#000000" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Alle 30
-              </div>
-              
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#444444" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                30 - 39
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#777777" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                40 - 49
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#aaaaaa" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                50 - 59
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#dddddd" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                60 - 69
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#ffffff" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                70 tai yli
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#ff0000" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Puuttuu
-              </div>
-            </div>
-            
+            <div id="ageLegend" class="legend" style="display: none;"></div>
+
             <!-- Sukupuoli -->
-            <div id="genderLegend" class="legend" style="display: none;">
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#66CCFF" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Mies
-              </div>
-              
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#FFCCFF" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Nainen
-              </div>
-            </div>
-            
+            <div id="genderLegend" class="legend" style="display: none;"></div>
+
             <!-- Vaalipiiri -->
-            <div id="districtLegend" class="legend" style="display: none;">
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#CCCCCC" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Häme
-              </div>
-              
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#003366" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Helsinki
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#FFFFFF" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Uusimaa
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#CCCC99" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Keski-Suomi
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#561420" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Lappi
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#821122" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Kaakkois-Suomi
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#C59A6F" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Oulu
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#333333" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Vaasa
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#FF9933" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Pirkanmaa
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#003399" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Satakunta
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#99CCCC" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Savo-Karjala
-              </div>
-              <div class="legend-item">
-                <svg width="10" height="10">
-                  <g>
-                    <circle cx="5" cy="5" class="pt907" r="3" fill="#000000" stroke="black" stroke-width="1" opacity="1"></circle>
-                  </g>
-                </svg>
-                Varsinais-Suomi
-              </div>
-            </div>
+            <div id="districtLegend" class="legend" style="display: none;"></div>
           </div>
         </div>
-        
+
         <div id="summary">
           <hr/>
           <h3>Ehdokasparvi 2015</h3>
           <p>
-            Ehdokasparvi on visualisaatio eduskuntavaaliehdokkaiden antamista HS:n vaalikonevastauksista. Visualisaation tarkoituksena on tutkia ja havainnollistaa ehdokkaiden vastausten perusteella: 
+            Ehdokasparvi on visualisaatio eduskuntavaaliehdokkaiden antamista HS:n vaalikonevastauksista. Visualisaation tarkoituksena on tutkia ja havainnollistaa ehdokkaiden vastausten perusteella:
             <ol>
               <li>Löytyykö eduskuntavaaliehdokkaiden joukosta selkeät puolueklusterit</li>
               <li>Löytyykö puoluerajojen sisällä poikkeavia kantoja</li>
@@ -363,164 +91,164 @@
           </p>
         </div>
       </div>
-      
+
       <div id="details-pane">
         <h3>Ehdokkaan tiedot</h3>
-        
-        <label>Nimi: 
+
+        <label>Nimi:
           <span id="name">-</span>
         </label>
-        
-        <label>Vaalipiiri: 
+
+        <label>Vaalipiiri:
           <span id="district"></span>
         </label>
 
-        <label>Puolue: 
+        <label>Puolue:
           <span id="party"></span>
         </label>
-        
-        <label>Ikä: 
-          <span id="age"></span>  
+
+        <label>Ikä:
+          <span id="age"></span>
         </label>
-        
-        <label>WWW: 
+
+        <label>WWW:
           <a id="www" target="_new" href="">
           </a>
         </label>
-        
-        <label>Koulutus: 
+
+        <label>Koulutus:
           <span id="education"></span>
         </label>
 
-        
+
         <h3>Vastaukset (1: täysin eri mieltä, 5: Täysin samaa mieltä)</h3>
         <p>
-          
+
         </p>
-        
-        <label>1. Suomen velkaantuminen on käännettävä laskuun vaikka se samalla tarkoittaisi leikkauksia palveluihin ja etuuksiin. 
-          <span class="inset" id="q1">-</span>  
+
+        <label>1. Suomen velkaantuminen on käännettävä laskuun vaikka se samalla tarkoittaisi leikkauksia palveluihin ja etuuksiin.
+          <span class="inset" id="q1">-</span>
         </label>
-        
+
         <label>2. Hyvin ansaitsevien palkkaverotusta pitäisi kiristää.
-          <span class="inset" id="q2">-</span>  
+          <span class="inset" id="q2">-</span>
         </label>
-        
+
         <label>3. Suomi tarvitsee lisää ydinvoimaa.
-          <span class="inset" id="q3">-</span>  
+          <span class="inset" id="q3">-</span>
         </label>
-        
+
         <label>4. Suomen tulee luopua kivihiilen, turpeen ja maakaasun käytöstä vuoteen 2025 mennessä.
-          <span class="inset" id="q4">-</span>  
+          <span class="inset" id="q4">-</span>
         </label>
-        
+
         <label>5. Suomen julkinen sektori on liian suuri ja sitä on syytä pienentää.
-          <span class="inset" id="q5">-</span>  
+          <span class="inset" id="q5">-</span>
         </label>
-        
+
         <label>6. Ruotsin pakollisesta opiskelusta tulisi luopua.
-          <span class="inset" id="q6">-</span>  
+          <span class="inset" id="q6">-</span>
         </label>
-        
+
         <label>7. Velvoitteita ottaa vastaan tarjottu työpaikka pitäisi kiristää.
-          <span class="inset" id="q7">-</span>  
+          <span class="inset" id="q7">-</span>
         </label>
-        
+
         <label>8. Jos ihmisellä on varallisuutta, hänen omaisuuttaan pitäisi vanhana käyttää hoivapalveluiden kustantamiseksi.
-          <span class="inset" id="q8">-</span>  
+          <span class="inset" id="q8">-</span>
         </label>
-        
+
         <label>9. Alkoholia tarjoavien ravintoloiden pitäisi saada olla auki nykyistä vapaammin.
-          <span class="inset" id="q9">-</span>  
+          <span class="inset" id="q9">-</span>
         </label>
-        
+
         <label>10. Kuntien määrää tulee vähentää merkittävästi, vaikka pakolla.
-          <span class="inset" id="q10">-</span>  
+          <span class="inset" id="q10">-</span>
         </label>
-        
+
         <label>11. Yritysten pitäisi voida maksaa työehtosopimuksia pienempiä palkkoja, jotta Suomeen saataisiin työpaikkoja.
-          <span class="inset" id="q11">-</span>  
+          <span class="inset" id="q11">-</span>
         </label>
-        
+
         <label>12. Koko Suomi on syytä pitää asuttuna ja valtion tuettava tätä verovaroin.
-          <span class="inset" id="q12">-</span>  
+          <span class="inset" id="q12">-</span>
         </label>
-        
+
         <label>13. Sote-uudistuksen yhteydessä yksityiset terveyspalvelut pitäisi nostaa julkisten palveluiden rinnalle samanlaiseen asemaan.
-          <span class="inset" id="q13">-</span>  
+          <span class="inset" id="q13">-</span>
         </label>
-        
+
         <label>14. Kuntien pitää saada itse tuottaa sosiaali- ja terveyspalveluita, eikä sote-uudistuksessa niiltä saa viedä liikaa pois valtaa.
-          <span class="inset" id="q14">-</span>  
+          <span class="inset" id="q14">-</span>
         </label>
-        
+
         <label>15. Taksien pitäisi antaa kilpailla vapaasti asiakkaista ilman että valtio säätää hinnat tai rajoittaa taksilupien määriä.
-          <span class="inset" id="q15">-</span>  
+          <span class="inset" id="q15">-</span>
         </label>
 
         <label>16. EU:sta on Suomelle enemmän hyötyä kuin haittaa.
-          <span class="inset" id="q16">-</span>  
+          <span class="inset" id="q16">-</span>
         </label>
-        
+
         <label>17. Hallitus päätti, että Suomi jää ulos osan EU-maiden valmistelemasta rahoitusmarkkinaverosta. Suomen pitäisi mennä mukaan rahoitusmarkkinaveroon.
-          <span class="inset" id="q17">-</span>  
+          <span class="inset" id="q17">-</span>
         </label>
-        
+
         <label>18. Suomen tulisi tällä vaalikaudella ryhtyä valmistelemaan hakemista Natoon.
-          <span class="inset" id="q18">-</span>  
+          <span class="inset" id="q18">-</span>
         </label>
-        
+
         <label>19. Puolustusvoimille on annettava nykyistä enemmän rahaa.
-          <span class="inset" id="q19">-</span>  
+          <span class="inset" id="q19">-</span>
         </label>
-        
+
         <label>20. EU- ja ETA-alueen ulkopuolelta tulevien kohdalla käytetään nyt "tarveharkintaa" eli työlupien saantia rajoitetaan. Tästä on pidettävä kiinni, eikä työperäistä maahanmuuttoa pidä helpottaa.
-          <span class="inset" id="q20">-</span>  
+          <span class="inset" id="q20">-</span>
         </label>
 
         <label>21. Homo- ja lesbopareilla pitää olla samat avioliitto- ja adoptio-oikeudet kuin heteropareilla.
-          <span class="inset" id="q21">-</span>  
+          <span class="inset" id="q21">-</span>
         </label>
-        
+
         <label>22. Jos valtio tarjoaa turvapaikanhakijoiden vastaanottokeskuksen perustamista kotikuntaani, tarjous pitää hyväksyä.
-          <span class="inset" id="q22">-</span>  
+          <span class="inset" id="q22">-</span>
         </label>
-        
+
         <label>23. Kouluissa kohdellaan koululaisia liian lepsusti. Tiukempi kuri tekisi kouluista parempia.
-          <span class="inset" id="q23">-</span>  
+          <span class="inset" id="q23">-</span>
         </label>
-        
+
         <label>24. Perinteiset arvot - kuten koti, uskonto ja isänmaa - muodostavat hyvän arvopohjan politiikalle.
-          <span class="inset" id="q24">-</span>  
+          <span class="inset" id="q24">-</span>
         </label>
-        
+
         <label>25. Julkisia palveluita tulisi ulkoistaa entistä enemmän yksityisten yritysten tuotettavaksi.
-          <span class="inset" id="q25">-</span>  
+          <span class="inset" id="q25">-</span>
         </label>
 
         <label>26. Jos tulee eteen tilanne, jossa on välttämätöntä joko leikata julkisia palveluita ja sosiaalietuuksia tai korottaa veroja, veronkorotukset ovat parempi vaihtoehto.
-          <span class="inset" id="q26">-</span>  
+          <span class="inset" id="q26">-</span>
         </label>
-        
+
         <label>27. Suuret tuloerot ovat hyväksyttäviä, jotta erot ihmisten lahjakkuudessa ja ahkeruudessa voidaan palkita.
-          <span class="inset" id="q27">-</span>  
+          <span class="inset" id="q27">-</span>
         </label>
-        
+
         <label>28. Nykyisen kaltaiset palvelut ja sosiaalietuudet ovat pitemmän päälle liian raskaita julkiselle taloudelle.
-          <span class="inset" id="q28">-</span>  
+          <span class="inset" id="q28">-</span>
         </label>
-        
+
         <label>29. Talouskasvu ja työpaikkojen luominen tulisi asettaa ympäristöasioiden edelle, silloin kun nämä kaksi ovat keskenään ristiriidassa.
-          <span class="inset" id="q29">-</span>  
+          <span class="inset" id="q29">-</span>
         </label>
-        
+
         <label>30. Kaikessa päätöksenteossa pitäisi arvioida vaikutukset ympäristöön ja tarvittaessa luopua ympäristölle haitallisista hankkeista.
-          <span class="inset" id="q30">-</span>  
+          <span class="inset" id="q30">-</span>
         </label>
 
       </div>
     </div>
-    
+
     <script type="text/javascript" src="./js/app.js"></script>
   </body>
 </html>
